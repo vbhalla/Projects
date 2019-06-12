@@ -1,8 +1,8 @@
-Vishal Bhalla
+### Vishal Bhalla
 
-October 25, 2016
+### October 25, 2016
 
-Predict Defaults on Loans
+## Predict Defaults on Loans
 
 Definition
 
@@ -79,8 +79,7 @@ correctly identified)
 As you can see, the farther up and to the left, the better fit a model
 has.
 
-![ROC\_space-2.png](utilities/1_ROC.png){width="6.5in" height="6.5in"}
-
+![ROC\_space-2.png](utilities/1_ROC.png)
 (https://en.wikipedia.org/wiki/Receiver\_operating\_characteristic)
 
 The AUC considers all possible thresholds in different true
@@ -150,22 +149,19 @@ height="2.2864588801399823in"}
 
 [Default Rates by Loan Tenure and Employee Title Population]{.underline}
 
-![](utilities/7_defaultRates.png){width="3.0064479440069993in"
-height="2.4282852143482065in"}![](utilities/7_defaultRatesTitle.png){width="3.2916666666666665in"
-height="2.369792213473316in"}
+<img align="left" src="utilities/7_defaultRates.png"> <img align="right" src="utilities/7_defaultRatesTitle.png">
+
+# ![](utilities/7_defaultRates.png)![](utilities/7_defaultRatesTitle.png)
 
 \*Appears that default rates are higher on longer term loans and on
 loans lacking an employee title input.
 
 [Default Rates and Loan Counts Across Subgrades of
-Loans]{.underline}![](utilities/defaultRatesLoanCounts.png){width="3.8645833333333335in"
-height="2.7244892825896763in"}
+Loans]{.underline}![](utilities/defaultRatesLoanCounts.png)
 
 \*As expected, lower grade loans have higher default rates
 
-![](utilities/8_defaultcounts.png){width="3.1458333333333335in"
-height="2.291576990376203in"}![](utilities/8DfeaultPercentages.png){width="3.0416666666666665in"
-height="2.2473031496062994in"}
+![](utilities/8_defaultcounts.png)![](utilities/8DfeaultPercentages.png)
 
 \*As expected, there are higher default rates across lower subgrades but
 issuance tends to be more in the mid-tier of loans.
