@@ -151,8 +151,6 @@ height="2.2864588801399823in"}
 
 <img align="left" src="utilities/7_defaultRates.png"> <img align="right" src="utilities/7_defaultRatesTitle.png">
 
-# ![](utilities/7_defaultRates.png)![](utilities/7_defaultRatesTitle.png)
-
 \*Appears that default rates are higher on longer term loans and on
 loans lacking an employee title input.
 
@@ -166,24 +164,19 @@ Loans]{.underline}![](utilities/defaultRatesLoanCounts.png)
 \*As expected, there are higher default rates across lower subgrades but
 issuance tends to be more in the mid-tier of loans.
 
-![](utilities/9_defaultHomeowners.png){width="3.5in"
-height="2.8177088801399823in"}![](utilities/9_defaultPurpose.png){width="3.3054122922134734in"
-height="2.6718755468066493in"}
+![](utilities/9_defaultHomeowners.png)![](utilities/9_defaultPurpose.png)
 
 \*Renters tend to have higher default rates as well as small business
-loan![](utilities/10_defaultrates.png){width="3.0625in"
-height="2.4953707349081364in"}![](utilities/10_defaultratesBars.png){width="3.4375in"
-height="2.434896106736658in"}
+loan![](utilities/10_defaultrates.png)![](utilities/10_defaultratesBars.png)
 
 \*Interesting spike at the highest end of the fico\_avg distribution and
 verified applicants have higher default rates, perhaps riskier borrowers
 need to submit verification prior to approval
 
 [Correlation plot of continuous features with Loan Label
-\[default\|performing\]]{.underline}
+\[default\|performing\]]
 
-![](utilities/11_correlationPlot.png){width="4.755208880139983in"
-height="4.486045494313211in"}
+![](utilities/11_correlationPlot.png)
 
 As you can see, the interest rate, dti, and inquiries in the past 6
 months tend to have higher correlation (absolute value, can be positive
@@ -209,7 +202,7 @@ which is helpful as I'm not 100% confident that all my features,
 particularly my categorical features, are particularly predictive in
 nature.
 
-[Background on Methods:]{.underline}
+[Background on Methods:]
 
 *Logistic Regression *
 
@@ -243,8 +236,7 @@ relationships between features and labels.
 *Reason for choice*: can deal with nonlinear relationships and does not
 require a lot of tuning
 
-![](utilities/12_defaultPercenages.png){width="4.213542213473316in"
-height="3.0694674103237096in"}
+![](utilities/12_defaultPercenages.png)
 
 **Benchmarks:**
 
@@ -259,7 +251,7 @@ Methodology
 
 **Data Preprocessing:**
 
-*KagDataCleansing-2014-Final.ipynb* - After careful inspection column by
+*1_DataCleansing2014FeatureExtraction.ipynb* - After careful inspection column by
 column, I have detailed steps within this notebook.
 
 Steps include:
@@ -302,11 +294,10 @@ have some predictive power and grouped the rest into NoMatch and
 Empty/NA titles to further reduce the feature space after dummy encoding
 of these categorical features.
 
-[Ridge Regression L2 Penalty]{.underline}[^1][:]{.underline}
+[Ridge Regression L2 Penalty]
 
 ![Screen Shot 2016-10-31 at 6.01.35
-PM.png](utilities/13_RidgeRegression.png){width="6.6875in"
-height="1.1458333333333333in"}
+PM.png](utilities/13_RidgeRegression.png, 'http://statweb.stanford.edu/~tibs/sta305files/Rudyregularization.pdf')
 
 For our categorical variables, we will use Ridge Regression/L2 penalty
 in order to identify the categorical variables to be included in the
@@ -341,8 +332,7 @@ parameter of choice leveraging Levenshtein distance
 that have coeficients \>.0005 which reduces the unique title count to a
 manageable 153 features.
 
-![](utilities/14_features.png){width="3.3802088801399823in"
-height="3.699511154855643in"}
+![](utilities/14_features.png)
 
 Output:
 
@@ -361,8 +351,7 @@ Levenshtein distance. It applies the same L2 regression methodology
 towards selecting the zipcodes that are the most predictive leveraging
 same methodology used above.
 
-![](utilities/15_features.png){width="2.4483169291338585in"
-height="4.546875546806649in"}
+![](utilities/15_features.png)
 
 Steps:
 
@@ -374,7 +363,7 @@ to evaluate categorical features that have some predictive value and
 also joins this with the output of the EmpTitleJW.ipynb title script
 
 Outputs: a fully merged file containing predictive zip codes and
-employee titles generated from EmpTitleFuzzyWuzzyAlgo.ipynb.
+employee titles generated from 3\_EmpTitleFuzzyWuzzyFeatureExtraction.ipynb.
 
 **Refinement:**
 
@@ -413,9 +402,9 @@ height="3.7395833333333335in"}
 
 Results
 
-**[Model Evaluation and Validation]{.underline}**
+**[Model Evaluation and Validation]**
 
-[There are two files as listed below:]{.underline}
+[There are two files as listed below:]
 
 IVS\_AWS\_10\_24\_LogReg\_Final.ipynb - contains logistic regression
 model and results
@@ -435,14 +424,14 @@ proportion of defaulted loans in both our train and test sets.
 
 ***Model Using Only Subgrade***
 
-  ----------------------- ------------- ------------ -----------------------------------------------
-  *Logistic Regression*                              
-  *Features*              *AUC Train*   *AUC Test*   *Notes*
-  *Ratings Only*          *.6705*       *.6683*      *Run with only the SubRatings*[^2] *Provided*
-  ----------------------- ------------- ------------ -----------------------------------------------
+*Logistic Regression*
+| Features     | AUC Train| AUC Test| Notes
+| -------------|:---------| :-----| :-----|
+| Ratings Only | .5705 | .6683 | Run with only the [LC SubRatings*](https://www.lendingclub.com/foliofn/rateDetail.action)
 
-![](utilities/17_plotsModelEval.png){width="4.048742344706912in"
-height="2.682292213473316in"}
+
+
+![](utilities/17_plotsModelEval.png)
 
 Default probability distribution generated from the model plotted in a
 histogram against actual y's.
@@ -451,8 +440,7 @@ AUC ROC Curve generated from the model, the farther up and to the left,
 the better the model fit. A straight diagonal line indicates that your
 model's predictive power is no better than randomness.
 
-![](utilities/18_plots.png){width="3.3177088801399823in"
-height="2.2936198600174977in"}
+![](utilities/18_plots.png)
 
 *In order to answer our questions above, we'll run our model and
 evaluate the results to select our best model.*
@@ -616,9 +604,6 @@ benchmark I believe that I could still improve this by implementing the
 steps above, both working on my feature set a bit more as discussed and
 testing out another algorithm such as GBM.
 
-[^1]: [[http://statweb.stanford.edu/\~tibs/sta305files/Rudyregularization.pdf]{.underline}](http://statweb.stanford.edu/~tibs/sta305files/Rudyregularization.pdf);
-    slide 12
 
-[^2]: Subgrade Ratings are defined as A-G and 1-5 with A1 being the best
-    and G5 being the riskiest; [[Rate Information;
-    LendingClub]{.underline}](https://www.lendingclub.com/foliofn/rateDetail.action)
+
+
