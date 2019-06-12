@@ -80,7 +80,7 @@ correctly identified)
 As you can see, the farther up and to the left, the better fit a model
 has.
 
-![ROC\_space-2.png](media/image1.png){width="6.5in" height="6.5in"}
+![ROC\_space-2.png](utilities/1_ROC.png){width="6.5in" height="6.5in"}
 
 (https://en.wikipedia.org/wiki/Receiver\_operating\_characteristic)
 
@@ -99,17 +99,17 @@ The dataset enclosed consists of 235,631 loans with 115 attributes.
 
 *./Data/LCDataDictionary.xlsx -* feature dictionary
 
-*KagDataCleansing2014-Final.ipynb* - Notebook used for initial
+*1_DataCleansing2014FeatureExtraction.ipynb* - Notebook used for initial
 inspection and relevant feature extraction
 
-*Exploratory Analysis-Final.ipynb - Notebook containing data exploration
+*2_Exploratory Analysis.ipynb - Notebook containing data exploration
 and visualization*
 
 **Data Exploration:**
 
 [Default Distribution:]{.underline}
 
-![](media/image2.png){width="5.963542213473316in"
+![](utilities/2_Frequency.png){width="5.963542213473316in"
 height="3.717656386701662in"}
 
 \*We're defining defaults via the Loan\_Status feature as anything loan
@@ -117,17 +117,17 @@ that is greater than 30 days late or greater.
 
 [Distribution of Timing of Defaults From Loan Origination:]{.underline}
 
-![](media/image3.png){width="2.0833333333333335in"
+![](utilities/3_distribution_timing.png){width="2.0833333333333335in"
 height="1.2708333333333333in"}
 
 -50% of the defaulted loans occur within 1 year (12 months)
 
 [Distribution of Employer Length]{.underline}
 
-![](media/image4.png){width="4.866498250218723in"
+![](utilities/4_Count_tenure.png){width="4.866498250218723in"
 height="3.0052088801399823in"}
 
-![](media/image5.png){width="4.416666666666667in"
+![](utilities/5_features_Count.png){width="4.416666666666667in"
 height="4.520833333333333in"}
 
 \*After inspecting all the features and removing all features that are
@@ -146,38 +146,38 @@ separately.
 
 [Frequency Of Loan Balances On Defaulted Loans]{.underline}
 
-![](media/image6.png){width="4.74003280839895in"
+![](utilities/6_Bar_chart.png){width="4.74003280839895in"
 height="2.2864588801399823in"}
 
 [Default Rates by Loan Tenure and Employee Title Population]{.underline}
 
-![](media/image7.png){width="3.0064479440069993in"
-height="2.4282852143482065in"}![](media/image8.png){width="3.2916666666666665in"
+![](utilities/7_defaultRates.png){width="3.0064479440069993in"
+height="2.4282852143482065in"}![](utilities/7_defaultRatesTitle.png){width="3.2916666666666665in"
 height="2.369792213473316in"}
 
 \*Appears that default rates are higher on longer term loans and on
 loans lacking an employee title input.
 
 [Default Rates and Loan Counts Across Subgrades of
-Loans]{.underline}![](media/image9.png){width="3.8645833333333335in"
+Loans]{.underline}![](utilities/8_defaultcounts.png){width="3.8645833333333335in"
 height="2.7244892825896763in"}
 
 \*As expected, lower grade loans have higher default rates
 
-![](media/image10.png){width="3.1458333333333335in"
-height="2.291576990376203in"}![](media/image11.png){width="3.0416666666666665in"
+![](utilities/8DfeaultPercentages.png){width="3.1458333333333335in"
+height="2.291576990376203in"}![](utilities/image11.png){width="3.0416666666666665in"
 height="2.2473031496062994in"}
 
 \*As expected, there are higher default rates across lower subgrades but
 issuance tends to be more in the mid-tier of loans.
 
-![](media/image12.png){width="3.5in"
-height="2.8177088801399823in"}![](media/image13.png){width="3.3054122922134734in"
+![](utilities/image12.png){width="3.5in"
+height="2.8177088801399823in"}![](utilities/image13.png){width="3.3054122922134734in"
 height="2.6718755468066493in"}
 
 \*Renters tend to have higher default rates as well as small business
-loan![](media/image14.png){width="3.0625in"
-height="2.4953707349081364in"}![](media/image15.png){width="3.4375in"
+loan![](utilities/9_defaultHomeowners.png){width="3.0625in"
+height="2.4953707349081364in"}![](utilities/9_defaultPurpose.png){width="3.4375in"
 height="2.434896106736658in"}
 
 \*Interesting spike at the highest end of the fico\_avg distribution and
@@ -187,7 +187,7 @@ need to submit verification prior to approval
 [Correlation plot of continuous features with Loan Label
 \[default\|performing\]]{.underline}
 
-![](media/image16.png){width="4.755208880139983in"
+![](utilities/image16.png){width="4.755208880139983in"
 height="4.486045494313211in"}
 
 As you can see, the interest rate, dti, and inquiries in the past 6
@@ -248,7 +248,7 @@ relationships between features and labels.
 *Reason for choice*: can deal with nonlinear relationships and does not
 require a lot of tuning
 
-![](media/image10.png){width="4.213542213473316in"
+![](utilities/image10.png){width="4.213542213473316in"
 height="3.0694674103237096in"}
 
 **Benchmarks:**
@@ -310,7 +310,7 @@ of these categorical features.
 [Ridge Regression L2 Penalty]{.underline}[^1][:]{.underline}
 
 ![Screen Shot 2016-10-31 at 6.01.35
-PM.png](media/image17.png){width="6.6875in"
+PM.png](utilities/image17.png){width="6.6875in"
 height="1.1458333333333333in"}
 
 For our categorical variables, we will use Ridge Regression/L2 penalty
@@ -321,7 +321,7 @@ the coefficients that are of the highest value while ensuring we are
 controlling for a reasonable feature space for both employee title and
 zip\_code.
 
-*EmpTitleFuzzyWuzzyAlgo\_Final.ipynb *
+*3\_EmpTitleFuzzyWuzzyFeatureExtraction.ipynb *
 
 This script applies fuzzy matching from seat geek, outputs the matches
 and then employs some categorical variable selection via logistic
@@ -346,7 +346,7 @@ parameter of choice leveraging Levenshtein distance
 that have coeficients \>.0005 which reduces the unique title count to a
 manageable 153 features.
 
-![](media/image18.png){width="3.3802088801399823in"
+![](utilities/image18.png){width="3.3802088801399823in"
 height="3.699511154855643in"}
 
 Output:
@@ -359,19 +359,19 @@ lowercase
 -fw\_emp\_title\_gt0005 - slimmed down titles only showing some degree
 of importance
 
-*JoinEmpTitle\_FW\_Zip\_Final.ipynb*
+*4\_GeoEmpTitle\_Feature\_Extraction.ipynb*
 
 This script accepts the input which were employee titles resulting from
 Levenshtein distance. It applies the same L2 regression methodology
 towards selecting the zipcodes that are the most predictive leveraging
 same methodology used above.
 
-![](media/image19.png){width="2.4483169291338585in"
+![](utilities/image19.png){width="2.4483169291338585in"
 height="4.546875546806649in"}
 
 Steps:
 
-Inputs: Output of EmpTitleFuzzyWuzzyAlgo\_Final.ipynb; containing the
+Inputs: Output of 3\_EmpTitleFuzzyWuzzyFeatureExtraction.ipynb; containing the
 employee titles resulting from Levenshtein distance
 
 Script: Takes zip codes and runs it through L2 Logistic Regression Model
@@ -413,7 +413,7 @@ as a discrete or continuous feature
 
 *Distribution of Employee Length and Default Rates*
 
-![](media/image20.png){width="5.072916666666667in"
+![](utilities/image20.png){width="5.072916666666667in"
 height="3.7395833333333335in"}
 
 Results
@@ -446,7 +446,7 @@ proportion of defaulted loans in both our train and test sets.
   *Ratings Only*          *.6705*       *.6683*      *Run with only the SubRatings*[^2] *Provided*
   ----------------------- ------------- ------------ -----------------------------------------------
 
-![](media/image21.png){width="4.048742344706912in"
+![](utilities/image21.png){width="4.048742344706912in"
 height="2.682292213473316in"}
 
 Default probability distribution generated from the model plotted in a
@@ -456,7 +456,7 @@ AUC ROC Curve generated from the model, the farther up and to the left,
 the better the model fit. A straight diagonal line indicates that your
 model's predictive power is no better than randomness.
 
-![](media/image22.png){width="3.3177088801399823in"
+![](utilities/image22.png){width="3.3177088801399823in"
 height="2.2936198600174977in"}
 
 *In order to answer our questions above, we'll run our model and
@@ -476,7 +476,7 @@ From the simulated runs above, we see that employment length as
 categorical and using our employee title transformer
 (fw\_emp\_title\_gt0005) has yielded the best results.
 
-![](media/image23.png){width="4.083333333333333in"
+![](utilities/image23.png){width="4.083333333333333in"
 height="2.8229166666666665in"}
 
 *Here you can see the corresponding ROC curve which moderately improves
@@ -519,7 +519,7 @@ Parameter Tuning for Random Forest:
 
 Number of Trees:
 
-![](media/image24.png){width="4.395833333333333in"
+![](utilities/image24.png){width="4.395833333333333in"
 height="2.8958333333333335in"}
 
 {\'n\_estimators\': 500, \'auc\': 0.693253}\
@@ -528,7 +528,7 @@ height="2.8958333333333335in"}
 {\'n\_estimators\': 2000, \'auc\': 0.693489}\
 {\'n\_estimators\': 3000, \'auc\': 0.693378}
 
-Number of Features:![](media/image25.png){width="4.395833333333333in"
+Number of Features:![](utilities/image25.png){width="4.395833333333333in"
 height="2.8766852580927385in"}
 
 {\'auc\': 0.690995, \'max\_features\': 0.1},\
