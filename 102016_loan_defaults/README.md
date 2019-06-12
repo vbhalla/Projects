@@ -10,7 +10,7 @@ Definition
 
 As people tend to be complicated, so do their credit profiles. The
 problem of evaluating credit profiles can be solved by harnessing the
-information in the Kaggle Lending Club dataset ([LC\_Data]{.underline}),
+information in the Kaggle Lending Club dataset [LC Data](https://www.kaggle.com/wendykan/lending-club-loan-data/downloads/lending-club-loan-data.zip),
 through a machine learning model. This data centric approach is robust
 and adds a new dimension to evaluating any individual requesting credit,
 thereby augmenting the toolset of underwriters and streamlining the
@@ -32,12 +32,11 @@ There are a lot of challenges working iwth these data sets, in terms of
 performance and much needed work on feature transformations. Therefore,
 I broke out the components of the ETL into sequential notebooks.
 
-[Original DataSet Requirements: ]{.underline}
+[LC Data](https://www.kaggle.com/wendykan/lending-club-loan-data/downloads/lending-club-loan-data.zip)
 
 LCDataDictionary.xlsx - Glossary of field names
 
-LoanStats2014.csv - input to DataCleansing2014FeatureExtraction can find
-dataset here: ([LC\_Data]{.underline})
+LoanStats2014.csv - input to DataCleansing2014FeatureExtraction
 
 [Data Preparation Notebook Sequence:]{.underline}
 
@@ -159,25 +158,25 @@ height="2.369792213473316in"}
 loans lacking an employee title input.
 
 [Default Rates and Loan Counts Across Subgrades of
-Loans]{.underline}![](utilities/8_defaultcounts.png){width="3.8645833333333335in"
+Loans]{.underline}![](utilities/defaultRatesLoanCounts.png){width="3.8645833333333335in"
 height="2.7244892825896763in"}
 
 \*As expected, lower grade loans have higher default rates
 
-![](utilities/8DfeaultPercentages.png){width="3.1458333333333335in"
-height="2.291576990376203in"}![](utilities/image11.png){width="3.0416666666666665in"
+![](utilities/8_defaultcounts.png){width="3.1458333333333335in"
+height="2.291576990376203in"}![](utilities/8DfeaultPercentages.png){width="3.0416666666666665in"
 height="2.2473031496062994in"}
 
 \*As expected, there are higher default rates across lower subgrades but
 issuance tends to be more in the mid-tier of loans.
 
-![](utilities/image12.png){width="3.5in"
-height="2.8177088801399823in"}![](utilities/image13.png){width="3.3054122922134734in"
+![](utilities/9_defaultHomeowners.png){width="3.5in"
+height="2.8177088801399823in"}![](utilities/9_defaultPurpose.png){width="3.3054122922134734in"
 height="2.6718755468066493in"}
 
 \*Renters tend to have higher default rates as well as small business
-loan![](utilities/9_defaultHomeowners.png){width="3.0625in"
-height="2.4953707349081364in"}![](utilities/9_defaultPurpose.png){width="3.4375in"
+loan![](utilities/10_defaultrates.png){width="3.0625in"
+height="2.4953707349081364in"}![](utilities/10_defaultratesBars.png){width="3.4375in"
 height="2.434896106736658in"}
 
 \*Interesting spike at the highest end of the fico\_avg distribution and
@@ -187,7 +186,7 @@ need to submit verification prior to approval
 [Correlation plot of continuous features with Loan Label
 \[default\|performing\]]{.underline}
 
-![](utilities/image16.png){width="4.755208880139983in"
+![](utilities/11_correlationPlot.png){width="4.755208880139983in"
 height="4.486045494313211in"}
 
 As you can see, the interest rate, dti, and inquiries in the past 6
@@ -248,7 +247,7 @@ relationships between features and labels.
 *Reason for choice*: can deal with nonlinear relationships and does not
 require a lot of tuning
 
-![](utilities/image10.png){width="4.213542213473316in"
+![](utilities/12_defaultPercenages.png){width="4.213542213473316in"
 height="3.0694674103237096in"}
 
 **Benchmarks:**
@@ -310,7 +309,7 @@ of these categorical features.
 [Ridge Regression L2 Penalty]{.underline}[^1][:]{.underline}
 
 ![Screen Shot 2016-10-31 at 6.01.35
-PM.png](utilities/image17.png){width="6.6875in"
+PM.png](utilities/13_RidgeRegression.png){width="6.6875in"
 height="1.1458333333333333in"}
 
 For our categorical variables, we will use Ridge Regression/L2 penalty
@@ -346,7 +345,7 @@ parameter of choice leveraging Levenshtein distance
 that have coeficients \>.0005 which reduces the unique title count to a
 manageable 153 features.
 
-![](utilities/image18.png){width="3.3802088801399823in"
+![](utilities/14_features.png){width="3.3802088801399823in"
 height="3.699511154855643in"}
 
 Output:
@@ -366,7 +365,7 @@ Levenshtein distance. It applies the same L2 regression methodology
 towards selecting the zipcodes that are the most predictive leveraging
 same methodology used above.
 
-![](utilities/image19.png){width="2.4483169291338585in"
+![](utilities/15_features.png){width="2.4483169291338585in"
 height="4.546875546806649in"}
 
 Steps:
