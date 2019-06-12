@@ -1,3 +1,4 @@
+
 ### Vishal Bhalla
 
 ### October 25, 2016
@@ -292,7 +293,7 @@ of these categorical features.
 [Ridge Regression L2 Penalty]
 
 ![Screen Shot 2016-10-31 at 6.01.35
-PM.png](utilities/13_RidgeRegression.png, 'http://statweb.stanford.edu/~tibs/sta305files/Rudyregularization.pdf')
+PM.png](utilities/13_RidgeRegression.png "http://statweb.stanford.edu/~tibs/sta305files/Rudyregularization.pdf"
 
 For our categorical variables, we will use Ridge Regression/L2 penalty
 in order to identify the categorical variables to be included in the
@@ -419,9 +420,10 @@ proportion of defaulted loans in both our train and test sets.
 ***Model Using Only Subgrade***
 
 *Logistic Regression*
-| Features     | AUC Train| AUC Test| Notes
-| -------------|:---------| :-----| :-----|
-| Ratings Only | .5705 | .6683 | Run with only the [LC SubRatings*](https://www.lendingclub.com/foliofn/rateDetail.action)
+
+Features     | AUC Train| AUC Test| Notes 
+------------- |:--------- | :----- | :-----
+Ratings Only | .5705 | .6683 | Run with only the [LC SubRatings*](https://www.lendingclub.com/foliofn/rateDetail.action)|
 
 
 
@@ -439,15 +441,17 @@ model's predictive power is no better than randomness.
 *In order to answer our questions above, we'll run our model and
 evaluate the results to select our best model.*
 
-  ----------------------------------------- ------------- ------------ ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  *Logistic Regression*                                                
-  *Features*                                *AUC Train*   *AUC Test*   *Notes*
-  *emp\_Length as Categorical*              .689          .6881        *Length of employment is better modeled as a categorical variable, improves AUC from .687. Therefore, its inclusion in the model will be as a categorical variable.*
-  *zipCode*                                 .6806         .6834        *Inclusion of ZipCode hurts the model (also the feature set explodes to 914 features)*
-  *zip\_Gt001*                              .6856         .6897        *Inclusion of our ZipCode Transfomer has helped increase the predictive power of our model*
-  *fw\_emp\_title\_gt0005*                  .6857         .6934        *Inclusion of fw\_emp\_title\_gt0005 greatly improved our model to .69!*
-  *zip\_Gt001 and fw\_emp\_title\_gt0005*   .6851         .6924        *Including both of these features appear to hurt our model therefore*
-  ----------------------------------------- ------------- ------------ ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+*Logistic Regression*
+
+Features     | AUC Train| AUC Test| Notes 
+------------- |:--------- | :----- | :-----
+emp\_Length as Categorical   |           .689    |      .6881    |    Length of employment is better modeled as a categorical variable, improves AUC from .687. Therefore, its inclusion in the model will be as a categorical variable.
+  zipCode           |                    .6806      |   .6834      |  Inclusion of ZipCode hurts the model (also the feature set explodes to 914 features)
+  zip\_Gt001         |                     .6856    |     .6897      |  Inclusion of our ZipCode Transfomer has helped increase the predictive power of our model
+  fw\_emp\_title\_gt0005       |          .6857       |  .6934       | Inclusion of fw\_emp\_title\_gt0005 greatly improved our model to .69!
+  zip\_Gt001 and fw\_emp\_title\_gt0005 |  .6851    |     .6924    |    Including both of these features appear to hurt our model therefore
+
 
 From the simulated runs above, we see that employment length as
 categorical and using our employee title transformer
@@ -490,6 +494,14 @@ solver=\'liblinear\', tol=0.0001, verbose=0, warm\_start=False)
   *emp\_titlegt0005*                .6902         .6934        *Running on only emptitle, yielding similar results, but training time is 34% faster (5490 vs. 8349 secs) as 201 features vs. 333 *
                                                                
   --------------------------------- ------------- ------------ -------------------------------------------------------------------------------------------------------------------------------------
+
+*Random Forest*
+
+Features     | AUC Train| AUC Test| Notes 
+------------- |:--------- | :----- | :-----
+ zip\_Gt001 & emp\_titlegt0005  | .6905    |     .6936    |    *unning a random forest on both of these features 
+  emp\_titlegt0005*     |          .6902     |    .6934    |    Running on only emptitle, yielding similar results, but training time is 34% faster (5490 vs. 8349 secs) as 201 features vs. 333 
+
 
 Parameter Tuning for Random Forest:
 
