@@ -38,7 +38,7 @@ LCDataDictionary.xlsx - Glossary of field names
 
 LoanStats2014.csv - input to DataCleansing2014FeatureExtraction
 
-[Data Preparation Notebook Sequence:]{.underline}
+[Data Preparation Notebook Sequence:]
 
 1\_DataCleansing2014FeatureExtraction.ipynb
 
@@ -105,28 +105,24 @@ and visualization*
 
 **Data Exploration:**
 
-[Default Distribution:]{.underline}
+[Default Distribution:]
 
-![](utilities/2_Frequency.png){width="5.963542213473316in"
-height="3.717656386701662in"}
+![](utilities/2_Frequency.png)
 
 \*We're defining defaults via the Loan\_Status feature as anything loan
 that is greater than 30 days late or greater.
 
-[Distribution of Timing of Defaults From Loan Origination:]{.underline}
+[Distribution of Timing of Defaults From Loan Origination:]
 
-![](utilities/3_distribution_timing.png){width="2.0833333333333335in"
-height="1.2708333333333333in"}
+![](utilities/3_distribution_timing.png)
 
 -50% of the defaulted loans occur within 1 year (12 months)
 
-[Distribution of Employer Length]{.underline}
+[Distribution of Employer Length]
 
-![](utilities/4_Count_tenure.png){width="4.866498250218723in"
-height="3.0052088801399823in"}
+![](utilities/4_Count_tenure.png)
 
-![](utilities/5_features_Count.png){width="4.416666666666667in"
-height="4.520833333333333in"}
+![](utilities/5_features_Count.png)
 
 \*After inspecting all the features and removing all features that are
 populated after loan origination (monitoring metrics not available at
@@ -142,12 +138,11 @@ title containing 60k unique lines of text and 3 digit zip codes which
 have 894 unique zip codes. We'll address these categorical values
 separately.
 
-[Frequency Of Loan Balances On Defaulted Loans]{.underline}
+[Frequency Of Loan Balances On Defaulted Loans]
 
-![](utilities/6_Bar_chart.png){width="4.74003280839895in"
-height="2.2864588801399823in"}
+![](utilities/6_Bar_chart.png)
 
-[Default Rates by Loan Tenure and Employee Title Population]{.underline}
+[Default Rates by Loan Tenure and Employee Title Population]
 
 <img align="left" src="utilities/7_defaultRates.png"> <img align="right" src="utilities/7_defaultRatesTitle.png">
 
@@ -155,7 +150,7 @@ height="2.2864588801399823in"}
 loans lacking an employee title input.
 
 [Default Rates and Loan Counts Across Subgrades of
-Loans]{.underline}![](utilities/defaultRatesLoanCounts.png)
+Loans]![](utilities/defaultRatesLoanCounts.png)
 
 \*As expected, lower grade loans have higher default rates
 
@@ -244,7 +239,7 @@ Each loan is attached a grade and subgrade (which is binning each grade
 into 5 tiers of risk). If my model is as or more predictive as using
 these features exclusively, I'll know if these last 3 months of work was
 justified ;-) The current benchmark AUC using these ratings alone is
-**[.6683]{.underline}** on the test set, therefore that is what we aim
+**[.6683]** on the test set, therefore that is what we aim
 to beat.
 
 Methodology
@@ -384,7 +379,7 @@ U\'fico\_avg\', \'emp\_length\_cat\', \'fw\_emp\_title\_gt0005\',
 \'zip\_gt001\'
 
 [We still have a few outstanding questions left to answer to finalize
-our feature set:]{.underline}
+our feature set:]
 
 \'zip\_gt001\' :Does our new transformed zip\_code have any predictive
 power, if so we shall include it
@@ -397,8 +392,7 @@ as a discrete or continuous feature
 
 *Distribution of Employee Length and Default Rates*
 
-![](utilities/16_emp_length.png){width="5.072916666666667in"
-height="3.7395833333333335in"}
+![](utilities/16_emp_length.png)
 
 Results
 
@@ -459,8 +453,7 @@ From the simulated runs above, we see that employment length as
 categorical and using our employee title transformer
 (fw\_emp\_title\_gt0005) has yielded the best results.
 
-![](utilities/19_TRTP.png){width="4.083333333333333in"
-height="2.8229166666666665in"}
+![](utilities/19_TRTP.png)
 
 *Here you can see the corresponding ROC curve which moderately improves
 and moves up a bit and to the left.*
@@ -502,8 +495,7 @@ Parameter Tuning for Random Forest:
 
 Number of Trees:
 
-![](utilities/20_ParameterTuning.png){width="4.395833333333333in"
-height="2.8958333333333335in"}
+![](utilities/20_ParameterTuning.png)
 
 {\'n\_estimators\': 500, \'auc\': 0.693253}\
 {\'n\_estimators\': 1000, \'auc\': 0.69336}\
@@ -511,8 +503,7 @@ height="2.8958333333333335in"}
 {\'n\_estimators\': 2000, \'auc\': 0.693489}\
 {\'n\_estimators\': 3000, \'auc\': 0.693378}
 
-Number of Features:![](utilities/21_parameterTuning.png){width="4.395833333333333in"
-height="2.8766852580927385in"}
+Number of Features:![](utilities/21_parameterTuning.png)
 
 {\'auc\': 0.690995, \'max\_features\': 0.1},\
 {\'auc\': 0.693189, \'max\_features\': 0.2},\
@@ -527,7 +518,7 @@ Justification:
 As you can see, our model's final solution is much better than using the
 subgrade ratings alone to predict default probability and
 leveraging/transforming our feature set and tuning our model iteratively
-has improved our model performance from .6683 to [.6924]{.underline}.
+has improved our model performance from .6683 to [.6924].
 
 Conclusion
 
@@ -587,7 +578,7 @@ improve than I originally thought and really working on my feature
 selections allowed me to improve my model, but I had thought its
 improvement would have been much more dramatic than the end result.
 
-**[Improvement:]{.underline}**
+**[Improvement:]**
 
 I strongly believe I can improve my fuzzy matching by both tuning the
 fuzzywuzzy module I imported and also possibly leveraging the
@@ -603,7 +594,3 @@ they require significant tuning. If I used my final solution as a
 benchmark I believe that I could still improve this by implementing the
 steps above, both working on my feature set a bit more as discussed and
 testing out another algorithm such as GBM.
-
-
-
-
