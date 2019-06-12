@@ -412,7 +412,7 @@ as a discrete or continuous feature
 
 *Distribution of Employee Length and Default Rates*
 
-![](utilities/image20.png){width="5.072916666666667in"
+![](utilities/16_emp_length.png){width="5.072916666666667in"
 height="3.7395833333333335in"}
 
 Results
@@ -445,7 +445,7 @@ proportion of defaulted loans in both our train and test sets.
   *Ratings Only*          *.6705*       *.6683*      *Run with only the SubRatings*[^2] *Provided*
   ----------------------- ------------- ------------ -----------------------------------------------
 
-![](utilities/image21.png){width="4.048742344706912in"
+![](utilities/17_plotsModelEval.png){width="4.048742344706912in"
 height="2.682292213473316in"}
 
 Default probability distribution generated from the model plotted in a
@@ -455,7 +455,7 @@ AUC ROC Curve generated from the model, the farther up and to the left,
 the better the model fit. A straight diagonal line indicates that your
 model's predictive power is no better than randomness.
 
-![](utilities/image22.png){width="3.3177088801399823in"
+![](utilities/18_plots.png){width="3.3177088801399823in"
 height="2.2936198600174977in"}
 
 *In order to answer our questions above, we'll run our model and
@@ -475,7 +475,7 @@ From the simulated runs above, we see that employment length as
 categorical and using our employee title transformer
 (fw\_emp\_title\_gt0005) has yielded the best results.
 
-![](utilities/image23.png){width="4.083333333333333in"
+![](utilities/19_TRTP.png){width="4.083333333333333in"
 height="2.8229166666666665in"}
 
 *Here you can see the corresponding ROC curve which moderately improves
@@ -518,7 +518,7 @@ Parameter Tuning for Random Forest:
 
 Number of Trees:
 
-![](utilities/image24.png){width="4.395833333333333in"
+![](utilities/20_ParameterTuning.png){width="4.395833333333333in"
 height="2.8958333333333335in"}
 
 {\'n\_estimators\': 500, \'auc\': 0.693253}\
@@ -527,7 +527,7 @@ height="2.8958333333333335in"}
 {\'n\_estimators\': 2000, \'auc\': 0.693489}\
 {\'n\_estimators\': 3000, \'auc\': 0.693378}
 
-Number of Features:![](utilities/image25.png){width="4.395833333333333in"
+Number of Features:![](utilities/21_parameterTuning.png){width="4.395833333333333in"
 height="2.8766852580927385in"}
 
 {\'auc\': 0.690995, \'max\_features\': 0.1},\
