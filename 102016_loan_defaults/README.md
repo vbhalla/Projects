@@ -145,13 +145,16 @@ separately.
 
 [Default Rates by Loan Tenure and Employee Title Population]
 
-<img align="left" src="utilities/7_defaultRates.png"> <img align="right" src="utilities/7_defaultRatesTitle.png">
+![](utilities/7_defaultRates.png.png)
+![](utilities/7_defaultRatesTitle.png.png)
+
 
 \*Appears that default rates are higher on longer term loans and on
 loans lacking an employee title input.
 
-[Default Rates and Loan Counts Across Subgrades of
-Loans]![](utilities/defaultRatesLoanCounts.png)
+**Default Rates and Loan Counts Across Subgrades of
+Loans**
+![](utilities/defaultRatesLoanCounts.png)
 
 \*As expected, lower grade loans have higher default rates
 
